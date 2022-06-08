@@ -1,12 +1,14 @@
-//import AnimalList.css later
+// import AnimalList.css later
+import React from 'react';
 
-export default function AnimalList({ name, type, says, top, left }) {
+import Animals from '../Animals/Animals.jsx';
+
+export default function AnimalList({ animals }) {
   return (
     <div className="animal-list">
-      <p>{name}</p>
-      <p>{type}</p>
-      <p>{says}</p>
-      <img src={`/public/images/${name}.svg`} />
+      {animals.map((animal, i) => (
+        <Animals {...animal} key={animal.name + i} />
+      ))}
     </div>
   );
 }
